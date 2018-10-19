@@ -1,0 +1,59 @@
+<html>
+<script>
+function Horse(cell) {
+    var horseCords = [];
+    var xCoordinates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+    var v = xCoordinates.indexOf(cell[0]) + 1; //V Positionen
+    var l = parseInt(cell[1]); //L Positionen
+    
+  
+    //FInna alla möjliga V postioner 
+    var vpositioner = [
+        v + 2,
+        v - 2, 
+        v + 1, 
+        v - 1
+    ].filter(function(cellPosition) {
+        return (cellPosition > 0 && cellPosition < 9);
+    })
+    
+    //Finna alla möjliga L postioner
+    var lpositioner = [
+        l + 2,
+        l - 2,
+        l + 1, 
+        l - 1
+    ].filter(function(cellPosition) {
+        return (cellPosition > 0 && cellPosition < 9);
+    })
+    
+    /* Där är 2 olika Arrays, en för L (Lodräta) och en för V (Vågräta) positioner.
+    Den ska nu gå igenom varje möjlig positon och validera positionen och 
+    eventuellt pusha om det är möjligt till den arrayen som vi vill.
+    För att göra detta möjligt behöver vi se till att (L, V) är Vågräta positionen
+    är 3 steg bort */
+    for (var i = 0; i < vpositioner.length; i++) {
+        for (var j = 0; j < lpositioner.length; j++) {
+            if (Math.abs(v - vpositioner[i]) + Math.abs(l - lpositioner[j]) === 3) {
+                console.log('Detta är möjliga drag: ', [vpositioner[i], lpositioner[j]]);
+                if (!horseCords.includes([vpositioner[i], lpositioner[j]])) {
+                    horseCords.push([vpositioner[i], lpositioner[j]]);
+                } 
+            }
+        }
+    }
+    return horseCords.length;
+}
+</script>
+<body>
+    <h1>Virituellt Schackbräde för hästen!</h1>
+    <li>Först trycker du på F12</li><br>
+    <li>Sedan går du in i Console och skriver in t.ex <strong>Horse("H1")</strong></li><br>
+    <li>Därefter får du fram två siffror. Första siffran representerar bokstäver, andra siffran representerar numret på ditt bräde. </li><br>
+    <li><a href="https://nl.depositphotos.com/2144557/stockillustratie-schaakbord-met-letters-en-cijfers.html" target="_blank">Här</a> hittar du ett virituellt
+    bräde där du kan få hjälp att föreställa var din häst befinner sig.</li>
+    <h4>Spela och lycka till!</h4>
+</body>
+</html>
+
+
