@@ -1,0 +1,64 @@
+/* Body */
+body {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+/* Header */
+header {
+    color: red;
+}
+
+p {
+    display: inline-block;
+}
+
+/* Where the question comes, with style etc */
+#container {  
+    margin: 3%;
+    font-size: 150%; 
+}
+
+/* True, false and Get Question button */
+#btn {
+    background-color: whitesmoke; 
+    border-radius: 100%;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+#true, #false {
+    visibility: hidden;
+    color: black;
+    border-radius: 15%;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 16px;
+    margin: 30px;      
+}
+
+#true:hover, #false:hover, #btn:hover {
+    color: red ;
+    border: 2px solid red;
+    opacity: 0.6;
+    transition: 0.1s; 
+}
+
+
+
+
+  @media screen and (min-width: 600px) {
+    .card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    .card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }
